@@ -17,11 +17,18 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from blog.views import index, item_post
+from blog.views import (
+    index, item_post, 
+    login_user, login_submit,
+    logout_user    
+    )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
     path('post/<id>', item_post, name='item_post'),
+    path('login/', login_user , name='login'),
+    path('login/submit', login_submit , name='login_submit'),
+    path('logout/', logout_user , name='logout_user'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -10,7 +10,13 @@
 </head>
 <body>
     <div class="container">
-        
+        {% if request.user.is_anonymous %}
+          <h2> <a href=""> Faça o Login aqui </a></h2>
+        {% else %}
+        <h2> Bem vindo {{ request.user.username }}
+        <br/>
+          <h3><a href="/logout/">Logout</a></h3>
+        {% endif %}
         <h1> Posts </h1>
 
         <table class="table">
