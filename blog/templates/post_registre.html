@@ -1,0 +1,36 @@
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pots</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+        {% bootstrap_messages %}
+
+        {% for message in messages %}
+            <div>
+                <strong>{{ message }}</strong>
+            </div>
+        {% endfor %}
+        
+        <form class="row g-3" action="/post_registre/", method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% comment %} <label for="usuario"> Usuario:</label><br>
+            <input type="text" id="usuario" name="usuario" value=""><br>
+            <label for="senha">Senha:</label><br>
+            <input type="password" id="senha" name="senha" value=""><br>
+            <input type="submit" class='bnt bnt_btn bnt_btn_primary' value="Submit"> {% endcomment %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            {% endbuttons %}
+          </form>
+    </div>
+{% bootstrap_javascript %}
+</body>
+</html>

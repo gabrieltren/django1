@@ -20,7 +20,8 @@ from django.conf.urls.static import static
 from blog.views import (
     index, item_post, 
     login_user, login_submit,
-    logout_user    
+    logout_user,registre, 
+    post_registre
     )
 
 urlpatterns = [
@@ -30,5 +31,7 @@ urlpatterns = [
     path('login/', login_user , name='login'),
     path('login/submit', login_submit , name='login_submit'),
     path('logout/', logout_user , name='logout_user'),
-
+    path('registre/', registre , name='registre'),
+    path('post_registre/', post_registre , name='post_registre'),
+    
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -30,13 +30,13 @@
             </thead>
             <tbody>
             {% for p in post %}
-                {% if p.imagem %}
+
               <tr>
                 <th scope="row">{{ p.id}}</th>
                 <td><a href="/post/{{p.id}}">{{p.titulo}}</a></td>
                 <td>{{p.data}}</td>
               </tr>
-                {% endif %}
+
             {% endfor %} 
             </tbody>
           </table>
